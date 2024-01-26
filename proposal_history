@@ -2,6 +2,8 @@
 pragma solidity ^0.8.18;
 contract ProposalContract {
     // Our contract code
+address owner;
+
 }
 struct Proposal {
         string description; // Description of the proposal
@@ -11,6 +13,9 @@ struct Proposal {
         uint256 total_vote_to_end; // When the total votes in the proposal reaches this limit, proposal ends
         bool current_state; // This shows the current state of the proposal, meaning whether if passes of fails
         bool is_active; // This shows if others can vote to our contract
+}
+constructor() {
+  owner = msg.sender;
 }
 
 mapping(uint256 => Proposal) proposal_history; // Recordings of previous proposals
